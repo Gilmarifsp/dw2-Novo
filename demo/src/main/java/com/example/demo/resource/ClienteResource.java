@@ -5,18 +5,21 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.repository.ClienteRepository;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 
 
 
@@ -35,7 +38,8 @@ public class ClienteResource {
 	}
 	
 	@PostMapping
-	public Cliente create(  @RequestBody Cliente cliente, HttpServletResponse response) {
+	@ResponseStatus(HttpStatus.CREATED)
+	public Cliente create(@Valid  @RequestBody Cliente cliente, HttpServletResponse response) {
 		return clienteRepository.save(cliente);
 	}
 	@GetMapping("/{id}")
