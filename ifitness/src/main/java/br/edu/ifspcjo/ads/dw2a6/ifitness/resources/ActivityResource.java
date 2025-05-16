@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ifspcjo.ads.dw2a6.ifitness.model.Activity;
 import br.edu.ifspcjo.ads.dw2a6.ifitness.repository.ActivityRepository;
 import br.edu.ifspcjo.ads.dw2a6.ifitness.service.ActivityService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/activities")

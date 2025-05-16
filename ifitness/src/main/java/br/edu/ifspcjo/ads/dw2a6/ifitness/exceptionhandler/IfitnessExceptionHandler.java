@@ -13,7 +13,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
@@ -34,7 +33,7 @@ public class IfitnessExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
-			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		String userMessage = messageSource.getMessage("invalid.message", null, LocaleContextHolder.getLocale());
 		String developerMessage = Optional.ofNullable(ex.getCause()).orElse(ex).toString();
 		
@@ -43,7 +42,7 @@ public class IfitnessExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		List<Error> errors = createErrorList(ex.getBindingResult());
 		return handleExceptionInternal(ex, errors, headers, HttpStatus.BAD_REQUEST, request);
 	}

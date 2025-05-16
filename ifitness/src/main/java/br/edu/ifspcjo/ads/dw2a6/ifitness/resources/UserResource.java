@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ifspcjo.ads.dw2a6.ifitness.model.User;
 import br.edu.ifspcjo.ads.dw2a6.ifitness.repository.UserRepository;
 import br.edu.ifspcjo.ads.dw2a6.ifitness.service.UserService;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.validation.Valid;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
