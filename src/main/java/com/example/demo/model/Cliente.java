@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.Objects;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -72,7 +74,10 @@ public class Cliente {
 	public void setcpf(String cpf) {
 		this.cpf = cpf;
 	}
-
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 	public Boolean getAtivo() {
 		return ativo;
 	}
@@ -88,7 +93,18 @@ public class Cliente {
 	public void setEndereco(EnderecoCliente endereco) {
 		this.endereco = endereco;
 	}
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(id, other.id);
+	}
+
 	
 
 }

@@ -1,13 +1,19 @@
 package com.example.demo;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class DemoApplicationTests {
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.ComponentScan;
 
-	@Test
-	void contextLoads() {
+
+@ComponentScan(basePackages = "com.example.demo")
+@EnableJpaRepositories("com.example.demo.repository")
+@SpringBootTest
+public class DemoApplicationTests {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplicationTests.class, args);
 	}
 
 }
