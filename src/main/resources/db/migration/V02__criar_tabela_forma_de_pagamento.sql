@@ -6,5 +6,5 @@ CREATE TABLE `forma_pagamento` (
 
 INSERT INTO forma_pagamento (codigo, nome) 
 	values (1, 'cartao');
-INSERT INTO forma_pagamento (codigo, nome, )
+INSERT INTO forma_pagamento (codigo, nome )
 	values (2, 'pix');
